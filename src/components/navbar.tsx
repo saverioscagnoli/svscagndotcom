@@ -5,7 +5,8 @@ import { Button, IconButton } from "./tredici";
 import { useTheme } from "@hooks";
 import { GitHubLogoIcon, MoonIcon, SunIcon } from "@radix-ui/react-icons";
 
-const labels = ["about", "projects", "contact"];
+const labels = ["projects", "about", "contact"];
+const landingPage = "projects";
 
 type LinkElementProps = {
   label: string;
@@ -14,7 +15,7 @@ type LinkElementProps = {
 const LinkElement: React.FC<LinkElementProps> = ({ label }) => {
   const { pathname } = useLocation();
   const active =
-    pathname === `/${label}` || (pathname === "/" && label === "about");
+    pathname === `/${label}` || (pathname === "/" && label === landingPage);
 
   return (
     <li

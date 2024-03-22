@@ -3,6 +3,8 @@
 @import "@radix-ui/colors/slate.css";
 @import "@radix-ui/colors/slate-dark.css";
 
+@import "@radix-ui/colors/gray-alpha.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
