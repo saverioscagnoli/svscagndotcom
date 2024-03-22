@@ -7,13 +7,15 @@ type ProjectCardProps = {
   title: string;
   description: string;
   url: string;
+  className?: string;
 };
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
   imgSrc,
   title,
   description,
-  url
+  url,
+  className
 }) => {
   return (
     <a
@@ -25,13 +27,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         "cursor-pointer"
       )}
     >
-      <AspectRatio ratio={720 / 400} className="shadow">
+      <AspectRatio ratio={720 / 400} className="shadow rounded-lg">
         <img
-          className={cn(
-            "w-full h-full",
-            "border border-[--gray-7]",
-            "rounded-lg"
-          )}
+          className={cn("w-full h-full", "rounded-[inherit]", className)}
           src={imgSrc}
         />
       </AspectRatio>

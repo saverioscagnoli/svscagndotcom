@@ -1,7 +1,7 @@
-import { cn } from "@lib";
+import { cn, lerp } from "@lib";
 import { Html, OrbitControls, useGLTF, useProgress } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Suspense, useEffect } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Progress } from "@tredici";
 
 const Loader = () => {
@@ -25,11 +25,36 @@ const Model = () => {
 };
 
 const Space = () => {
+  const [animID, setAnimID] = useState<number>(0);
+  const [speed, setSpeed] = useState(750);
+
+  useEffect(() => {
+    const loop = () => {
+      setSpeed(s => lerp(s, 1, 0.03));
+
+      setAnimID(requestAnimationFrame(loop));
+    };
+
+    loop();
+  }, []);
+
+  useEffect(() => {
+    if (speed <= 5) {
+      setSpeed(3);
+      cancelAnimationFrame(animID);
+    }
+  }, [speed]);
+
   return (
-    <div className={cn("w-[600px] min-h-[500px]")}>
+    <div className={cn("md:w-[600px] w-[90%] min-h-[500px]")}>
       <Canvas orthographic camera={{ zoom: 125 }}>
         <ambientLight />
-        <OrbitControls enableZoom enableRotate autoRotate />
+        <OrbitControls
+          enableZoom
+          enableRotate
+          autoRotate
+          autoRotateSpeed={speed}
+        />
         <Suspense fallback={<Loader />}>
           <Model />
         </Suspense>

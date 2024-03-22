@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useEffect } from "react";
 import { Button } from "@tredici";
 import { cn } from "@lib";
 import {
@@ -43,8 +43,18 @@ const AboutPage = () => {
     age--;
   }
 
+  useEffect(() => {
+    window.document.title = "Saverio Scagnoli - About";
+  }, []);
+
   return (
-    <div className="lg:w-[600px] w-4/5 h-full -mt-[200px] z-40">
+    <div
+      className={cn(
+        "md:w-[600px] w-[90%] h-full",
+        "md:px-0 sm:px-12 px-4",
+        "-mt-[200px]"
+      )}
+    >
       <div
         className={cn(
           "text-center",
@@ -57,12 +67,26 @@ const AboutPage = () => {
       >
         Hello, I'm an indie app developer based in Rome!
       </div>
-      <h1 className="font-bold text-4xl mt-6">Saverio Scagnoli</h1>
-      <p className="text-lg">Fullstack developer</p>
+
+      <div
+        className={cn("flex flex-col md:flex-row md:justify-between", "mt-6")}
+      >
+        <div>
+          <h1 className="font-bold text-4xl">Saverio Scagnoli</h1>
+          <p className="text-lg">Fullstack developer</p>
+        </div>
+        <div className="flex items-center w-full md:w-auto mt-6 md:mt-0">
+          <span className="w-24 h-24 rounded-full mx-auto md:mx-0">
+            <img
+              className="w-full h-full object-cover rounded-full border-2 border-[--slate-12] transition-[border-color]"
+              src="/me.jpg"
+            />
+          </span>
+        </div>
+      </div>
 
       <h3
         className={cn(
-          "mt-8",
           "font-bold",
           "text-2xl",
           "decoration-4 decoration-[--slate-7]",

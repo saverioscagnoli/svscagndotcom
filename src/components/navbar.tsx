@@ -4,9 +4,10 @@ import { Link, useLocation } from "react-router-dom";
 import { Button, IconButton } from "./tredici";
 import { useTheme } from "@hooks";
 import { GitHubLogoIcon, MoonIcon, SunIcon } from "@radix-ui/react-icons";
+import { HambugerMenu } from "./hamburger-menu";
 
-const labels = ["projects", "about", "contact"];
-const landingPage = "projects";
+const labels = ["about", "projects"];
+const landingPage = "about";
 
 type LinkElementProps = {
   label: string;
@@ -60,7 +61,7 @@ const Navbar = () => {
       </div>
       <div className={cn("flex items-center gap-4")}>
         <Link
-          className="sm:block hidden"
+          className="md:block hidden"
           to="https://github.com/saverioscagnoli/portfolio"
           target="_blank"
         >
@@ -68,8 +69,10 @@ const Navbar = () => {
             Source
           </Button>
         </Link>
+
+        <HambugerMenu className="md:hidden block" />
+
         <IconButton
-          colorScheme={isDark ? "amber" : "plum"}
           icon={isDark ? <SunIcon /> : <MoonIcon />}
           onClick={toggleTheme}
         />
