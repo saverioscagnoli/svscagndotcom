@@ -22,7 +22,20 @@ function App() {
       </div>
 
       <p className="text-[--slate-10] py-6 mt-auto">
-        © {new Date().getFullYear()} Saverio Scagnoli. All Rights Reserved.
+        Made with ❤️ with React,{" "}
+        <a
+          href="https://tredici-www.vercel.app"
+          target="_blank"
+          className={cn(
+            "text-[--slate-12]",
+            "underline",
+            "underline-offset-2",
+            "cursor-pointer"
+          )}
+        >
+          Tredici
+        </a>{" "}
+        and TailwindCSS.
       </p>
     </div>
   );
