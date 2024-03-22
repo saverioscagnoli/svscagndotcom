@@ -1,6 +1,7 @@
 import { Navbar } from "@components/navbar";
 import { Space } from "@components/space";
 import { cn } from "@lib";
+import { NotFoundPage } from "@pages/404";
 import { AboutPage } from "@pages/about";
 import { ProjectsPage } from "@pages/projects";
 import { Route, Routes, Navigate } from "react-router-dom";
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<AboutPage />} />
           <Route path="/about" element={<Navigate to="/" />} />
           <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
 
