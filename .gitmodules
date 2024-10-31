@@ -1,0 +1,3 @@
+[submodule "src/pages/booru-downloader"]
+	path = src/pages/booru-downloader
+	url = https://github.com/saverioscagnoli/booru-downloader
