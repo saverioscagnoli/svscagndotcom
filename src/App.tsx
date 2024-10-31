@@ -13,15 +13,12 @@ function App() {
     >
       <Navbar />
       <Space />
-
-      <div className="z-10">
-        <Routes>
-          <Route path="/" element={<AboutPage />} />
-          <Route path="/about" element={<Navigate to="/" />} />
-          <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<AboutPage />} />
+        <Route path="/about" element={<Navigate to="/" />} />
+        <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
 
       <p className="text-[--slate-10] py-6 mt-auto">
         Made with ❤️ with React,{" "}

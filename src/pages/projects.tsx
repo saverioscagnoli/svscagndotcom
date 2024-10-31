@@ -43,6 +43,14 @@ const ProjectsPage = () => {
             description="Super Bomberman clone, written in Java. (University project)"
             url="https://github.com/saverioscagnoli/bomberman"
           />
+
+          <ProjectCard
+            imgSrc="/danbooru.png"
+            title="booru downloader"
+            description="Bulk downloader from booru websites."
+            url="https://booru-downloader.vercel.app"
+            ratio={1}
+          />
         </div>
       </div>
     </div>
